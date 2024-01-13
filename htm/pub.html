@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LSzameitat</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <script>
+    const repoUrl =
+      "https://api.github.com/repos/lszam/resume/contents/assets/bib";
+
+    async function fetchBibFiles() {
+      try {
+        const response = await fetch(repoUrl);
+        const files = await response.json();
+        const bibFiles = files.filter((file) => file.name.endsWith(".bib"));
+
+        let citations = [];
+
+        for (const file of bibFiles) {
+          const bibContent = await fetchBibContent(file.download_url);
+          const citation = formatBibtexAsCitation(bibContent);
+          if (citation) {
+            citations.push(citation);
+          }
+        }
+
+        // Ordenar as citações com base no ano e depois no nome dos autores
+        citations.sort((a, b) => {
+          const yearA = parseInt(a.match(/\((\d+)\)/)[1]);
+          const yearB = parseInt(b.match(/\((\d+)\)/)[1]);
+
+          if (yearA === yearB) {
+            const authorsA = a.match(/^([^,]+)/)[1].toLowerCase();
+            const authorsB = b.match(/^([^,]+)/)[1].toLowerCase();
+            return authorsA.localeCompare(authorsB);
+          } else {
+            return yearB - yearA;
+          }
+        });
+
+        // Exibir as citações ordenadas
+        const bibList = document.getElementById("bibList");
+        for (const citation of citations) {
+          const li = document.createElement("li");
+          li.innerHTML = citation; // Usar innerHTML para permitir links
+          bibList.appendChild(li);
+        }
+      } catch (error) {
+        console.error(`Erro ao buscar arquivos .bib: ${error}`);
+      }
+    }
+
+    async function fetchBibContent(url) {
+      const response = await fetch(url);
+      const content = await response.text();
+      return content;
+    }
+
+    function formatBibtexAsCitation(bibtexContent) {
+      // Analisar o conteúdo do arquivo BibTeX e formata-lo no novo formato.
+      // Assume que o conteúdo do arquivo BibTeX esta bem formatado e consistente.
+      const authorMatch = bibtexContent.match(/author\s*=\s*{([^}]+)}/i);
+      const yearMatch = bibtexContent.match(/year\s*=\s*{([^}]+)}/i);
+      const titleMatch = bibtexContent.match(/title\s*=\s*{([^}]+)}/i);
+      const journalMatch = bibtexContent.match(/journal\s*=\s*{([^}]+)}/i);
+      const doiMatch = bibtexContent.match(/doi\s*=\s*{([^}]+)}/i);
+      const urlMatch = bibtexContent.match(/url\s*=\s*{([^}]+)}/i);
+
+      if (authorMatch && yearMatch && titleMatch && journalMatch && urlMatch) {
+        const authors = authorMatch[1]
+          .split(" and ")
+          .map((author) => author.trim());
+        const year = yearMatch[1].trim();
+        const title = titleMatch[1].trim();
+        const journal = journalMatch[1].trim();
+        const doi = doiMatch ? doiMatch[1].trim() : "";
+        const url = urlMatch[1].trim(); // Pegar a URL do campo url do BibTeX
+        // Coloca os autores como uma única string
+        const authorsString = authors.join(", ");
+        // Citação no novo formato com link para a URL
+        const citation = `${authorsString} (${year}). ${title}. ${journal}. <a href="${url}" target="blank">${doi}</a>`;
+        return citation;
+      } else {
+        return "Incomplete citation. Minimum info: author, year, title, journal, url.";
+      }
+    }
+
+    function displayCitation(citation) {
+      const bibList = document.getElementById("bibList");
+      const li = document.createElement("li");
+      li.innerHTML = citation; // Usar innerHTML para permitir links
+      bibList.appendChild(li);
+    }
+
+    // Chama a função para buscar e exibir as referências .bib
+    fetchBibFiles();
+  </script>
+
+  <body>
+    <header class="caixa-cabecalho">
+      <a href="../index.html"><h1>PhD Luizemara Szameitat</h1></a>
+      <nav>
+        <ul>
+          <li class="item-cabecalho"><a href="../index.html">Home</a></li>
+          <li class="item-cabecalho menu-filhos">
+            <a href="#">Publications</a>
+            <ul>
+              <li class="item-cabecalho">
+                <a href="../htm/pub.html">Publications</a>
+              </li>
+
+              <li class="item-cabecalho">
+                <a href="../htm/codes.html">Coding</a>
+              </li>
+
+              <li class="item-cabecalho">
+                <a href="http://lattes.cnpq.br/4322898960715686" target="_blank"
+                  >CNPq Lattes</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="secao-publicacoes">
+        <h1>Scientific publications</h1>
+        <div class="container-artigos">
+          <h2>Articles</h2>
+          <a
+            href="https://github.com/lszam/resume/tree/main/assets/bib"
+            target="_blank"
+            >(raw info - BibTeX files)</a
+          >
+          <div class="artigos">
+            <div id="bibReferences">
+              <ol id="bibList"></ol>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

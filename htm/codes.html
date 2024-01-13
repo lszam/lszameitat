@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L. Szameitat</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="caixa-cabecalho">
+      <a href="../index.html"><h1>PhD Luizemara Szameitat</h1></a>
+      <nav>
+        <ul>
+          <li class="item-cabecalho"><a href="../index.html">Home</a></li>
+          <li class="item-cabecalho menu-filhos">
+            <a href="#">Publications</a>
+            <ul>
+              <li class="item-cabecalho">
+                <a href="../htm/pub.html">Publications</a>
+              </li>
+
+              <li class="item-cabecalho">
+                <a href="../htm/codes.html">Coding</a>
+              </li>
+
+              <li class="item-cabecalho">
+                <a href="http://lattes.cnpq.br/4322898960715686" target="_blank"
+                  >CNPq Lattes</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="secao-codes-for-education">
+      <div class="codes-cabecalho">
+        <h1>Codes for Education</h1>
+        <h2>
+          Computational resources for treating magnetometric and gravimetric
+          data
+        </h2>
+        <p class="codes-descricao">
+          Python codes for some Fortran functions of Blakely (1996), and
+          application of published functions of Fatiando a Terra project (Uieda,
+          et al. 2013), designed for using as a educational tool in Geophysics
+          courses.
+        </p>
+
+        <div class="botao-github">
+          <a href="https://github.com/lszam/ensino" target="_blank"
+            ><img src="../assets/logo/logo-github.png" /> GitHub project
+          </a>
+        </div>
+
+        <h3>References:</h3>
+        <p class="referencia-texto">
+          Szameitat, L., Bongiolo, A. (Accepted article) Recursos computacionais
+          para tratamento de dados magnetométricos e gravimétricos em sala de
+          aula. Boletim Paranaense de Geociências.
+        </p>
+        <p class="referencia-texto">
+          Blakely, R. J. (1996). Potential theory in gravity and magnetic
+          applications. Cambridge University Press.
+        </p>
+        <p class="referencia-texto">
+          Uieda, L., Oliveira Jr, V. C., & Barbosa, V. C. (2013). Modeling the
+          earth with Fatiando a Terra. In Proceedings of the 12th Python in
+          Science Conference (pp. 96-103).<a
+            href="https://pdfs.semanticscholar.org/ba6d/b75613a2daf1b9f5bb19602e67d5a281b124.pdf"
+            >[link]</a
+          >
+        </p>
+      </div>
+
+      <div class="container-codes">
+        <!-- Lista de Codigos -->
+        <!-- Gradiente Horizontal -->
+        <div class="codes-codes">
+          <h3>
+            <img src="../assets/logo/logo-py.png" alt="logo-py" height="14px" />
+            GradHoriz()
+          </h3>
+          <p class="codes-descricao">Total horizontal gradient</p>
+          <div class="code">
+            <p>
+              <a href="#" id="copyToClipboard1"><b>Copy to clipboard</b></a>
+            </p>
+            <pre>
+                <code>
+  def GradHoriz(vetor, nx, ny, dx, dy):
+    '''
+    Parametros
+    ----------
+          vetor (1d array): 
+            array de uma dimensão contendo o campo total
+          nx, ny (int):
+            numero de amostras em x e y
+          dx, dy (int):
+            distancia entre amostras em x e y
+                '''
+    dx2 = 2*dx
+    dy2 = 2*dy
+    vetor_GH = np.ones(nx*ny)
+    for j in range(1, ny+1):
+      jm1 = j - 1
+      if jm1 < 1: #condição de borda
+        jm1 = 1
+      jp1 = j + 1
+      if jp1 > ny: #condição de borda
+        jp1 = ny
+      for i in range(1, nx+1):
+        im1 = i - 1
+        if im1 < 1: #condição de borda
+          im1 = 1
+        ip1 = i + 1
+        if ip1 > nx: #condição de borda
+          ip1 = nx
+        #index(i,j,nx) = (j-1) * nx + i #função index em Blakely (1996)
+        indexip1 = (jp1-1) * nx + (i-1)
+        indexim1 = (j-1) * nx + (im1-1)
+        indexjp1 = (jp1-1) * nx + (i-1)
+        indexjm1 = (j-2) * nx + (i-1)
+        #Análise de valores no espaço
+        dfdx = (vetor[indexip1]-vetor[indexim1]) / dx2
+        dfdy = (vetor[indexjp1]-vetor[indexjm1]) / dy2
+        ij = (j-1) * nx + (i-1)
+        vetor_GH[ij] = sqrt(dfdx**2+dfdy**2)
+                
+    return vetor_GH
+                </code>
+              </pre>
+          </div>
+        </div>
+        <!-- Segundo Codigo -->
+        <div class="codes-codes">
+          <h3>
+            <img src="../assets/logo/logo-py.png" alt="logo-py" height="14px" />
+            Kvalue()
+          </h3>
+          <p class="codes-descricao">For some Blakely's functions</p>
+          <div class="code">
+            <p>
+              <a href="#" id="copyToClipboard2"><b>Copy to clipboard</b></a>
+            </p>
+            <pre>
+              <code>
+def Kvalue(i, j, nx, ny, dkx, dky):
+  '''
+  Parametros
+  ----------
+  i, j(int):
+    posicoes, ou indices de varredura
+  nx, ny (int):
+    número de amostras em x e y
+  dkx, dky (int):
+    distância em x e y em radianos
+  '''
+  nyqx = nx / 2 + 1
+  nyqy = ny / 2 + 1
+  kx = float()
+  ky = float()
+  if j <= nyqx:
+    kx = (j-1) * dkx
+  else:
+    kx = (j-nx-1) * dkx
+  if I <= nyqy:
+    ky = (i-1) * dky
+  else:
+    ky = (i-ny-1) * dky
+  return kx, ky
+                </code>
+              </pre>
+          </div>
+        </div>
+        <!-- Fim do Codigo 2 -->
+      </div>
+      <!-- Fim do container-codes -->
+    </section>
+    <!-- <script>
+      document
+        .getElementById("copyToClipboard")
+        .addEventListener("click", function () {
+          var codeElement = document.querySelector(".code code");
+          var textToCopy = codeElement.innerText;
+
+          var textarea = document.createElement("textarea");
+          textarea.value = textToCopy;
+          document.body.appendChild(textarea);
+          textarea.select();
+
+          try {
+            var successful = document.execCommand("copy");
+            var msg = successful
+              ? "Code copied to clipboard!"
+              : "Unable to copy code.";
+            alert(msg);
+          } catch (err) {
+            console.error("Unable to copy code: ", err);
+          } finally {
+            document.body.removeChild(textarea);
+          }
+        });
+    </script> -->
+
+    <script>
+      document
+        .getElementById("copyToClipboard1")
+        .addEventListener("click", function () {
+          var codeElement = document.querySelector(".code code");
+          var textToCopy = codeElement.innerText;
+
+          navigator.clipboard
+            .writeText(textToCopy)
+            .then(function () {
+              alert("Code copied to clipboard!");
+            })
+            .catch(function (err) {
+              console.error("Unable to copy code: ", err);
+              alert("Failed to copy code to clipboard.");
+            });
+        });
+
+      document
+        .getElementById("copyToClipboard2")
+        .addEventListener("click", function () {
+          var codeElement = document.querySelectorAll(".code code")[1];
+          var textToCopy = codeElement.innerText;
+
+          navigator.clipboard
+            .writeText(textToCopy)
+            .then(function () {
+              alert("Code copied to clipboard!");
+            })
+            .catch(function (err) {
+              console.error("Unable to copy code: ", err);
+              alert("Failed to copy code to clipboard.");
+            });
+        });
+    </script>
+  </body>
+</html>
