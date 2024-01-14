@@ -159,9 +159,6 @@ nav ul {
   color: rgb(255, 182, 46);
 }
 
-/* .item-cabecalho.menu-filhos:after {
-  content: "\25ff";
-} */
 nav ul {
   list-style: none;
 }
@@ -211,7 +208,7 @@ nav ul {
   color: #404040;
   font-family: Arial, sans-serif;
   margin: 0.4rem 0; /* margem entre parágrafos */
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .hero-botoes {
@@ -363,7 +360,7 @@ nav ul {
   align-items: center;
   justify-content: center;
   height: 14vh;
-  background-image: url("../assets/img/banner-geo.JPG");
+  background-image: url("../lszameitat/assets/img/banner-geo.JPG");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
