@@ -1,4 +1,5 @@
 /* Página pessoal - Janeiro de 2024*/
+
 /*GLOBAL*/
 * {
   padding: 0;
@@ -637,7 +638,7 @@ a.doi {
   width: max-content;
 }
 .codes-codes p {
-  text-align: right;
+  text-align: center;
 }
 
 .codes-codes a:hover {
