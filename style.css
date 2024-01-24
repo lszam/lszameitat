@@ -1,5 +1,9 @@
 /* Página pessoal - Janeiro de 2024*/
-
+@media all and (max-width: 480px){
+  html{
+    font-size: 30%;
+  }
+}
 /*GLOBAL*/
 * {
   padding: 0;
@@ -83,6 +87,7 @@ a {
   border-top: solid 0.2rem #404040;
   border-left: solid 0.2rem #404040;
   box-shadow: 0 0.4rem 0.4rem 0.15rem rgba(0, 0, 0, 0.2);
+  transition: all ease-in 0.15s;
 }
 .botao:hover {
   color: white;
@@ -148,16 +153,26 @@ nav ul {
 .menu-filhos:hover ul {
   display: block;
 }
-.item-cabecalho a {
+
+.item-cabecalho {
+  a{
   color: #6e6e6e;
   font-size: 1.4rem;
   text-transform: uppercase;
   font-weight: 600;
+  transition: color ease-in 0.15s; /*transição*/
+
+  &:hover, 
+  &:active {
+    color: rgb(255, 182, 46);
+  }
 }
-.item-cabecalho a:hover,
-.item-cabecalho a:active {
-  color: rgb(255, 182, 46);
+
+  &.menu-filhos::after{
+    content: "\2bc6";
+  }
 }
+
 
 nav ul {
   list-style: none;
@@ -221,6 +236,7 @@ nav ul {
 .caixa-barra-lateral {
   border-left: solid rgb(214, 214, 214);
   padding-left: 2.53rem;
+  gap: 2rem;
 }
 
 /*Secao Resumo profissional*/
@@ -341,6 +357,7 @@ nav ul {
 .circulo-logos:hover {
   box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.8),
     0 0 0.8rem rgba(0, 0, 0, 0.35);
+    transition: all ease-in 0.3s;
 }
 
 /* Geology Banner */
@@ -395,6 +412,27 @@ nav ul {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
+  gap: 2rem;
+
+  &.namidia-links,
+  &.namidia-titulo{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+
+  & .namidia-links {
+    gap: 2rem;
+
+    & a {
+      transition: transform ease-in 0.15s;
+      &:hover,
+      &:active {
+        transform: scale(1.1);
+      }
+
+    }
+  }
 }
 
 /*Blog*/
