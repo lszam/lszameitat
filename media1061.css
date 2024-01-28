@@ -1,0 +1,64 @@
+@media all and (max-width: 1061px) { 
+    .h1{
+      font-size: 1.0rem;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .caixa-cabecalho{
+      height: 6.0rem;
+
+      /* & nav {
+        overflow: hidden;
+      } */
+
+      .nome-cabecalho-mobile {
+        font-size: 1.6rem;
+      }
+    }
+
+    .container-secao-resumo-profissional {
+        max-width: 100%;        
+    }
+
+    .caixa-restante-diferenciais {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+      }
+
+    .caixa-texto-resumo {
+        min-width: 300px;
+        /* max-width: auto; */
+        align-items: center;
+        border-radius: 2.5rem;
+        width: 100%;
+        padding: 0.2rem 1.6rem 1.6rem 1.6rem;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.35);
+      }   
+
+    .botao{
+      font-size: 1.2rem;
+      padding: 1.02rem 2.5rem;
+      border-bottom: solid 0.12rem #404040;
+      border-right: solid 0.12rem #404040;
+      border-top: solid 0.12rem #404040;
+      border-left: solid 0.12rem #404040;
+      box-shadow: 0 0.24rem 0.24rem 0.075rem rgba(0, 0, 0, 0.2);
+    }
+    .myphoto {
+      width: 18rem;
+      height: 18rem;
+    }
+    .hero-paragrafo {
+      font-size: 1.4rem; 
+    }
+    .caixa-h3 {
+      font-size: 2.0rem;
+    }
+}

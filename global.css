@@ -1,0 +1,101 @@
+@media all and (max-width: 480px){
+    html{
+      font-size: 30%;
+    }
+  }
+  /*GLOBAL*/
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  /* dimensoes e unidades */
+  /* escala https://typescale.com/ Major Third em PX*/
+  
+  html {
+    font-size: 62,5%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    color: #404040;
+    line-height: 1.4;
+    padding: 0;
+    background-color: #f4f5f7;
+  }
+  h1 {
+    font-size: 2.1rem;
+    font-weight: 700px;
+    margin-top: 0.21rem;
+    margin-bottom: 1.6rem;
+    margin-left: 0;
+  }
+  h2 {
+    font-size: 2.1rem;
+    font-weight: 500;
+    margin-top: 0.21rem;
+    margin-bottom: 0.39rem;
+  }
+  h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 0.21rem;
+    margin-bottom: 0.39rem;
+  }
+  h4 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 0.39rem;
+    margin-bottom: 0.39rem;
+  }
+  h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0.39rem;
+    margin-bottom: 0.39rem;
+  }
+  .realce {
+    font-weight: 600;
+  }
+  a {
+    text-decoration: none;
+    color: #404040;
+  }
+  .secao-padrao {
+    padding: 1.2rem 2rem;
+  }
+  .container {
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  .botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #404040;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 3rem;
+    background-color: antiquewhite;
+    padding: 1.02rem 2.5rem;
+    border-bottom: solid 0.2rem #404040;
+    border-right: solid 0.2rem #404040;
+    border-top: solid 0.2rem #404040;
+    border-left: solid 0.2rem #404040;
+    box-shadow: 0 0.4rem 0.4rem 0.15rem rgba(0, 0, 0, 0.2);
+    transition: all ease-in 0.15s;
+  }
+  .botao:hover {
+    color: white;
+    background-color: gray;
+    border-bottom: none;
+    border-right: none;
+    border-top: solid 0.2rem white;
+    border-left: solid 0.2rem white;
+    box-shadow: none;
+  }
+  .comments {
+    font-size: medium;
+  }
