@@ -5,34 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LSzameitat</title>
-    <link rel="stylesheet" href="global.css" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="media1061.css" media="(max-width:1061px)" />
-    <link rel="stylesheet" href="media767.css" media="(max-width:767px)" />
-
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media1061.css" media="(max-width:1061px)" />
+    <link rel="stylesheet" href="css/media767.css" media="(max-width:767px)" />
+    <link rel="icon" href="assets/ico/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/ico/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
     integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
     integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
   
-  </head>
-  <body>
+  </head>  
+  <body class="">
     <header class="caixa-cabecalho">
       <h1 class="nome-cabecalho-mobile">PhD Luizemara Szameitat</h1>
+    
       <nav>
         <ul>
           <li class="item-cabecalho">
-            <a href="../index.html">Home</a>
+            <a href="index.html">Home</a>
           </li>
-          <li class="item-cabecalho menu-filhos">
+          <li class="item-cabecalho menu-filhos" id="clickable-link">
             <a href="#">Work</a>
-            <ul>
+            <!-- Menu filhos -->
+            <ul class="menu-filhos">
               <li class="item-cabecalho">
-                <a href="../lszameitat/htm/pub.html">Articles</a>
+                <a href="pub.html">Articles</a>
               </li>
 
               <li class="item-cabecalho">
-                <a href="../lszameitat/htm/codes.html">Coding</a>
+                <a href="codes.html">Coding</a>
               </li>
 
               <li class="item-cabecalho">
@@ -41,20 +44,10 @@
                 >
               </li>
             </ul>
+
           </li>
         </ul>
       </nav>
-
-      <!-- Menu ícone para mobile -->
-      <div class="menu-mobile">
-        <a href="">
-          <p class="fa fa-home menu-icone-fechar"></p>       
-        </a>
-        <a href="">
-          <p class="fa fa-bars menu-icone-bars"></p>       
-        </a>
-      </div>
-
     </header>
 
     <main>
@@ -69,24 +62,21 @@
               alt="Luizemara Szameitat"
             />
             <p>SOCIAL MEDIA:</p>
-            <div>
+            <div class="social-media-icones">
               <a href="https://github.com/lszam"
                 ><img
-                  src="assets/logo/logo-github.png"
-                  style="height: 2.5rem"
+                  src="assets/logo/logo-github.png"                  
                   alt="GitHub logo"
               /></a>
               <a href="https://www.instagram.com/luizemara/"
                 ><img
-                  src="assets/logo/logo-insta.png"
-                  style="height: 2.5rem"
+                  src="assets/logo/logo-insta.png"                  
                   alt="Instagram logo"
               /></a>
 
               <a href="https://www.linkedin.com/in/luizemara-szameitat-2020/"
                 ><img
-                  src="assets/logo/logo-linkedin.png"
-                  style="height: 2.5rem"
+                  src="assets/logo/logo-linkedin.png"                  
                   alt="Linkedin logo"
               /></a>
             </div>
@@ -114,8 +104,8 @@
 
             <!-- Div Botoes Hero -->
             <div class="hero-botoes">
-              <a class="botao" href="htm/pub.html">Publications</a>
-              <a class="botao" href="htm/codes.html">Codes for Education</a>
+              <a class="botao" href="pub.html">Publications</a>
+              <a class="botao" href="codes.html">Codes for Education</a>
             </div>
           </div>
         </div>
@@ -256,5 +246,18 @@
         </address>
       </div>
     </footer>
+ 
+    <script>
+      document.addEventListener('click', function(event) {
+          if (event.target.id === 'clickable-link') {
+              event.preventDefault(); // Impede a ação padrão apenas para esta âncora específica
+              event.target.classList.toggle('manter-click');
+          }
+      });
+    //   document.getElementById('clickable-link').addEventListener('click', function(event) {
+    //     event.preventDefault(); // Impede a ação padrão do link
+    //     this.classList.toggle('manter-click');
+    // }); 
+    </script> 
   </body>
 </html>

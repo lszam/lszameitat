@@ -1,24 +1,35 @@
 @media all and (max-width: 767px) { 
-    html {
-        font-size: 90%;
-    }
-    .h2 {
+
+    h2 {
         font-size: 1.6rem;
     }
+
     .caixa-h3 {
         font-size: 1.4rem;
     }
 
 
-    /* Cabecalho */
-    .caixa-cabecalho{
-        
-        & .item-cabecalho {            
-            font-size: 0.8rem;
+    /* Cabeçalho */
+    .caixa-cabecalho {
+        padding: 1rem 0.5rem;
 
+        & .nome-cabecalho-mobile {
+            font-size: 1.6rem;
+        } 
+
+        & nav ul{
+            gap: 1rem;
         }
 
+        .manter-click{
+            & .menu-filhos { 
+                display: block;
+                transition: all ease-in 30ms;
+            }
+        }
     }
+
+
 
     .hero-paragrafo {
         font-size: 1.2rem; 
@@ -28,17 +39,25 @@
     .secao-hero {
         .hero-nome{
             font-size: 1.4rem;
-        }
-        .nome-cabecalho-mobile {
-            font-size: 1.6rem;
-        }    
+        }  
         .container-hero {
             display: flex;
             flex-flow: column;
             gap: 2.5rem;
             align-items: center;
             margin-bottom: 2rem;
+
+            & .social-media-icones{
+                display:flex;
+                gap: 1.02rem;
+                padding: 0.6rem;
+                
+                & img {
+                    height: 1.6rem;
+                }
+            }            
         }
+        
         .myphoto {
             width: 14rem;
             height: 14rem;
