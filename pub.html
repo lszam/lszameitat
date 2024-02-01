@@ -6,10 +6,11 @@
     <title>LSzameitat</title>
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pub.css" />
     <link
       rel="stylesheet"
-      href="css/media1061.css"
-      media="(max-width:1061px)"
+      href="css/media1300.css"
+      media="(max-width:1300px)"
     />
     <link rel="stylesheet" href="css/media767.css" media="(max-width:767px)" />
     <link rel="icon" href="assets/ico/favicon.png" type="image/x-icon" />
@@ -73,26 +74,16 @@
     </header>
 
     <main>
-      <section class="secao-publicacoes">
+      <section class="secao-principal">
         <!-- Primeira coluna - Artigos -->
         <div class="container-artigos">
-          <h2><b>Articles</b></h2>
-          <!-- <a
-            href="https://github.com/lszam/resume/tree/main/assets/bib"
-            target="_blank"
-            >[BibTeX files]</a
-          > -->
-          <div class="artigos">
+          <div class="container-artigos__titulo">
+            <h2><b>Articles</b></h2>
+          </div>
+          <div class="container-artigos__artigos">
             <div id="bibReferences">
               <ol id="bibList"></ol>
             </div>
-          </div>
-        </div>
-        <!-- Segunda coluna -->
-        <div class="container-artigos">
-          <h2><b>Other scientific publications</b></h2>
-          <div class="artigos">
-            <p>Under construction!</p>
           </div>
         </div>
       </section>
@@ -101,6 +92,20 @@
       const repoUrl =
         "https://api.github.com/repos/lszam/resume/contents/assets/bib";
 
+      const yearColors = {
+        2024: "#FF5733", //
+        2023: "#FF5733", //
+        2022: "#FF5733", //
+        2021: "#FF5733", //
+        2020: "#FF5733", //
+        2019: "#000",
+        2018: "#000",
+        2017: "#000",
+        2016: "#000",
+        2015: "#000",
+      };
+
+      // REFERENCIAS
       async function fetchBibFiles() {
         try {
           const response = await fetch(repoUrl);
@@ -184,14 +189,30 @@
         }
       }
 
+      // function displayCitation(citation) {
+      //   const bibList = document.getElementById("bibList");
+      //   const li = document.createElement("li");
+      //   li.innerHTML = citation; // Usar innerHTML para permitir links
+      //   bibList.appendChild(li);
+      // }
+
+      // CORES POR ANOS
       function displayCitation(citation) {
         const bibList = document.getElementById("bibList");
         const li = document.createElement("li");
         li.innerHTML = citation; // Usar innerHTML para permitir links
+        // Extrair o ano da citação
+        const year = citation.match(/\((\d{4})\)/)[1];
+        // Determinar a cor com base no ano
+        const color = yearColors[year] || "#606060"; // Cor padrão se o ano não estiver definido
+        // Aplicar a cor
+        li.style.color = color;
+        li.style.setProperty("color", "corEscolhida", "important");
+
         bibList.appendChild(li);
       }
 
-      // Chama a função para buscar e exibir as referências .bib
+      // Chama a função para buscar e exibir referências
       fetchBibFiles();
     </script>
   </body>
