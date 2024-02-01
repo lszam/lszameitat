@@ -1,6 +1,6 @@
 @media all and (max-width: 767px) {
   h2 {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 
   .secao-principal {
@@ -33,20 +33,20 @@
   }
 
   .hero-paragrafo {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   /* Hero */
   .secao-hero {
     .hero-nome {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
     .container-hero {
       display: flex;
       flex-flow: column;
-      gap: 2.5rem;
+      gap: 1rem;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
 
       & .social-media-icones {
         display: flex;
@@ -54,11 +54,6 @@
         padding: 0.4rem;
       }
     }
-
-    /* .myphoto {
-      width: 16rem;
-      height: 16rem;
-    } */
   }
 
   .circulo-logos {

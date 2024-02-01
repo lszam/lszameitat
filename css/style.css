@@ -1,6 +1,7 @@
 .secao-principal {
   display: flex;
   flex-flow: row;
+  align-items: flex-start;
 }
 
 /* Secao Cabecalho */
@@ -88,10 +89,7 @@ nav ul {
 .container-hero {
   display: flex;
   flex-flow: column;
-  gap: 2.5rem;
-  align-items: center;
-  margin-bottom: 2rem;
-
+  padding: 2rem;
   & .social-media-icones {
     display: flex;
     gap: 0.2rem;
@@ -104,10 +102,10 @@ nav ul {
 }
 .secao-hero {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
   gap: 2rem;
-  margin-top: 1.2rem;
-  padding: 2.5rem;
+  margin-top: 0.8rem;
+  padding: 4.1rem;
   max-height: 800px;
 }
 
@@ -118,7 +116,6 @@ nav ul {
   width: 20rem;
   height: auto;
   border-radius: 50%;
-  position: flex;
   box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.5);
   flex: 1;
   margin-bottom: 2rem;
@@ -133,10 +130,9 @@ nav ul {
 .hero-coluna {
   display: flex;
   flex-flow: column;
-  align-items: left;
-  gap: 1.02rem;
-  /* max-height: 300px; */
-  width: 400px;
+  align-items: center;
+  /* width: 400px; */
+  width: 100%;
 }
 
 .hero-paragrafo {
@@ -156,7 +152,7 @@ nav ul {
 
 .caixa-barra-lateral {
   border-left: solid rgb(214, 214, 214);
-  padding-left: 2.53rem;
+  padding-left: 2rem;
   gap: 2rem;
 }
 
