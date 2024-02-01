@@ -1,3 +1,8 @@
+.secao-principal {
+  display: flex;
+  flex-flow: row;
+}
+
 /* Secao Cabecalho */
 .caixa-cabecalho {
   display: flex;
@@ -8,12 +13,11 @@
   z-index: 999;
   top: 0;
   left: 0;
-  height: 5.0rem;
+  height: 5rem;
   align-items: baseline;
   padding: 1.6rem;
   background-color: antiquewhite; /*whitesmoke;*/
   box-shadow: 0 0.21rem 0.4rem 0rem rgba(0, 0, 0, 0.1);
-
 }
 
 nav ul {
@@ -76,40 +80,43 @@ nav ul {
   }
 }
 
-
 nav ul {
   list-style: none;
 }
 
-
 /* Secao Hero */
 .container-hero {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
   gap: 2.5rem;
-  align-items: start;
+  align-items: center;
   margin-bottom: 2rem;
-  & .social-media-icones{
+
+  & .social-media-icones {
+    display: flex;
+    gap: 0.2rem;
+    padding: 0.4rem;
     & img {
       height: 2rem;
+      width: auto;
     }
   }
 }
-
 .secao-hero {
   display: flex;
   flex-flow: row wrap;
-  gap: 0.8rem;
+  gap: 2rem;
   margin-top: 1.2rem;
-  padding: 2rem;
+  padding: 2.5rem;
+  max-height: 800px;
 }
 
 .myphoto {
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
   flex-basis: initial;
-  width: 21rem;
-  height: 21rem;
+  width: 20rem;
+  height: auto;
   border-radius: 50%;
   position: flex;
   box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.5);
@@ -118,12 +125,18 @@ nav ul {
   background-color: antiquewhite;
 }
 
+.funding-logo {
+  width: 16rem;
+  height: auto;
+}
+
 .hero-coluna {
   display: flex;
   flex-flow: column;
   align-items: left;
-  gap: 0.1rem;
-  flex: 1;
+  gap: 1.02rem;
+  /* max-height: 300px; */
+  width: 400px;
 }
 
 .hero-paragrafo {
@@ -134,6 +147,7 @@ nav ul {
 }
 
 .hero-botoes {
+  margin: 2rem 0;
   display: inline-flex;
   justify-content: center;
   flex-flow: row;
@@ -146,18 +160,17 @@ nav ul {
   gap: 2rem;
 }
 
-
 /*Secao Resumo profissional*/
 .secao-profissional {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }
 .container-secao-resumo-profissional {
   border-radius: 5rem;
   box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.5);
-  max-width: 1200px;
+  max-width: 100%;
 }
 .caixa-cabecalho-resumo {
   background-image: linear-gradient(10deg, whitesmoke, rgb(233, 233, 220));
@@ -184,7 +197,7 @@ nav ul {
 }
 .caixa-texto-resumo {
   min-width: 300px;
-  max-width: 500px;
+  max-width: 33%;
   align-items: center;
   border-radius: 2.5rem;
   width: 70%;
@@ -194,7 +207,7 @@ nav ul {
 }
 .caixa-grupos {
   min-width: 200px;
-  max-width: 400px;
+  max-width: 33.33%;
   border-radius: 2.5rem;
   height: fit-content;
   background-color: white;
@@ -265,7 +278,7 @@ nav ul {
 .circulo-logos:hover {
   box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.8),
     0 0 0.8rem rgba(0, 0, 0, 0.35);
-    transition: all ease-in 0.3s;
+  transition: all ease-in 0.3s;
 }
 
 /* Geology Banner */
@@ -285,7 +298,7 @@ nav ul {
   align-items: center;
   justify-content: center;
   height: 14vh;
-  background-image: url("../lszameitat/assets/img/banner-geo.JPG");
+  background-image: url("assets/img/banner-geo.JPG");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -323,7 +336,7 @@ nav ul {
   gap: 2rem;
 
   &.namidia-links,
-  &.namidia-titulo{
+  &.namidia-titulo {
     display: flex;
     align-items: center;
     font-size: 1.2rem;
@@ -338,30 +351,31 @@ nav ul {
       &:active {
         transform: scale(1.1);
       }
-
     }
   }
 }
 
 /* Rodape */
 .secao-rodape {
-  display: flex;
-}
-.container-rodape {
   display: inline-flex;
-  flex-flow: row;
+  background-color: #ccc;
   justify-content: center;
   align-items: center;
+}
+.container-rodape {
+  /* display: inline-flex; */
   font-size: 1.28rem;
   font-weight: 400;
   gap: 5rem;
+  padding: 1.6rem;
 }
 
 /* Publicacoes */
 .secao-publicacoes {
   display: flex;
-  flex-flow: column;
-  font-size: 1.28rem;
+  flex-flow: row wrap;
+  gap: 2rem;
+  font-size: 1.6rem;
   padding: 2rem;
 }
 
@@ -372,10 +386,14 @@ nav ul {
   width: 100%;
 }
 
+.container-artigos {
+  max-width: 50%;
+}
+
 .container-artigos ol {
   list-style-type: decimal;
   display: flex;
-  flex-direction: column; /* Inverte a direção dos elementos */
+  flex-direction: column;
 }
 
 .container-artigos a {
@@ -383,7 +401,7 @@ nav ul {
   text-decoration-style: dotted;
 }
 .container-artigos a:hover {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .container-publ-type {

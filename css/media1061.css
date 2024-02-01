@@ -1,60 +1,67 @@
-@media all and (max-width: 1061px) {     
+@media all and (max-width: 1061px) {
+  .h1 {
+    font-size: 1rem;
+  }
 
-    .h1{
-      font-size: 1.0rem;
-    }
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .container-hero {
+    display: flex;
+    flex-flow: column;
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
 
-    .container {
-      max-width: 100%;
-      margin: 0 auto;
+  .caixa-cabecalho {
+    .nome-cabecalho-mobile {
+      font-size: 2rem;
     }
+  }
 
-    .caixa-cabecalho{
+  .container-secao-resumo-profissional {
+    max-width: 100%;
+  }
 
-      .nome-cabecalho-mobile {
-        font-size: 2rem;
-      }
-    }
+  .caixa-restante-diferenciais {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+  }
 
-    .container-secao-resumo-profissional {
-        max-width: 100%;        
-    }
+  .caixa-texto-resumo {
+    min-width: 300px;
+    max-width: 100%;
+    align-items: center;
+    border-radius: 2.5rem;
+    width: 100%;
+    padding: 0.2rem 1.6rem 1.6rem 1.6rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.35);
+  }
 
-    .caixa-restante-diferenciais {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        width: 100%;
-        justify-content: center;
-      }
+  .botao {
+    font-size: 1.2rem;
+    padding: 1.02rem 2.5rem;
+    border-bottom: solid 0.12rem #404040;
+    border-right: solid 0.12rem #404040;
+    border-top: solid 0.12rem #404040;
+    border-left: solid 0.12rem #404040;
+    box-shadow: 0 0.24rem 0.24rem 0.075rem rgba(0, 0, 0, 0.2);
+  }
 
-    .caixa-texto-resumo {
-        min-width: 300px;
-        /* max-width: auto; */
-        align-items: center;
-        border-radius: 2.5rem;
-        width: 100%;
-        padding: 0.2rem 1.6rem 1.6rem 1.6rem;
-        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.35);
-      }   
+  .hero-paragrafo {
+    font-size: 1.4rem;
+  }
+  .caixa-h3 {
+    font-size: 2rem;
+  }
 
-    .botao{
-      font-size: 1.2rem;
-      padding: 1.02rem 2.5rem;
-      border-bottom: solid 0.12rem #404040;
-      border-right: solid 0.12rem #404040;
-      border-top: solid 0.12rem #404040;
-      border-left: solid 0.12rem #404040;
-      box-shadow: 0 0.24rem 0.24rem 0.075rem rgba(0, 0, 0, 0.2);
-    }
-    .myphoto {
-      width: 18rem;
-      height: 18rem;
-    }
-    .hero-paragrafo {
-      font-size: 1.4rem; 
-    }
-    .caixa-h3 {
-      font-size: 2.0rem;
-    }
+  /* ARTIGOS */
+  .container-artigos {
+    max-width: 100%;
+  }
 }
