@@ -60,7 +60,9 @@
   .hero-paragrafo {
     font-size: 1.4rem;
   }
-
+  .caixa-interesses {
+    max-width: 50%;
+  }
   .caixa-grupos {
     justify-content: center;
     text-align: center;
