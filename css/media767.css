@@ -1,11 +1,13 @@
 @media all and (max-width: 767px) {
-  h2 {
-    font-size: 2rem;
-  }
-
   .secao-principal {
     display: flex;
     flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 2rem;
   }
 
   .caixa-h3 {
@@ -56,6 +58,9 @@
     }
   }
 
+  .caixa-interesses {
+    max-width: 100%;
+  }
   .circulo-logos {
     width: 8rem;
     height: 8rem;
@@ -66,5 +71,9 @@
 
   .namidia-titulo {
     font-size: 1.4rem;
+  }
+
+  code {
+    font-size: 1rem;
   }
 }

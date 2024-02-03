@@ -1,7 +1,11 @@
 .secao-principal {
   display: flex;
   flex-flow: row;
+  position: relative;
   align-items: flex-start;
+  justify-content: center;
+  max-width: 1400px;
+  padding: 0 4rem;
 }
 
 /* Secao Cabecalho */
@@ -86,6 +90,14 @@ nav ul {
 }
 
 /* Secao Hero */
+.secao-hero {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  background-color: white;
+  max-width: 42%;
+}
+
 .container-hero {
   display: flex;
   flex-flow: column;
@@ -99,14 +111,6 @@ nav ul {
       width: auto;
     }
   }
-}
-.secao-hero {
-  display: flex;
-  flex-flow: column;
-  gap: 2rem;
-  margin-top: 0.8rem;
-  padding: 4.1rem;
-  max-height: 800px;
 }
 
 .myphoto {
@@ -123,7 +127,7 @@ nav ul {
 }
 
 .funding-logo {
-  width: 16rem;
+  width: 10rem;
   height: auto;
 }
 
@@ -131,8 +135,6 @@ nav ul {
   display: flex;
   flex-flow: column;
   align-items: center;
-  /* width: 400px; */
-  width: 100%;
 }
 
 .hero-paragrafo {
@@ -140,6 +142,11 @@ nav ul {
   font-family: Arial, sans-serif;
   margin: 0.4rem 0; /* margem entre parágrafos */
   font-size: 1.6rem;
+}
+
+.hero-position,
+.hero-nome {
+  text-align: center;
 }
 
 .hero-botoes {
@@ -150,10 +157,36 @@ nav ul {
   gap: 1rem;
 }
 
-.caixa-barra-lateral {
-  border-left: solid rgb(214, 214, 214);
-  padding-left: 2rem;
-  gap: 2rem;
+.hero-details {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.caixa-educacao {
+  max-width: fit-content;
+}
+
+.caixa-interesses {
+  max-width: 50%;
+}
+
+.caixa-grupos {
+  /* min-width: 200px; */
+  width: 100%;
+  height: fit-content;
+  padding: 0.42rem 2rem;
+  text-align: center;
+}
+
+.caixa-grupos-logos {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.42rem;
+  position: relative;
 }
 
 /*Secao Resumo profissional*/
@@ -164,20 +197,21 @@ nav ul {
   align-items: center;
 }
 .container-secao-resumo-profissional {
-  border-radius: 5rem;
-  box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.5);
-  max-width: 100%;
+  border-radius: 0.5rem;
+  background-color: whitesmoke;
+  max-width: 1900px;
 }
 .caixa-cabecalho-resumo {
-  background-image: linear-gradient(10deg, whitesmoke, rgb(233, 233, 220));
-  padding: 3.9rem 3.9rem;
-  border-top-left-radius: 5rem;
-  border-top-right-radius: 5rem;
-  box-shadow: inset 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
+  /* background-image: linear-gradient(0deg, whitesmoke, antiquewhite); */
+  padding: 2.5rem 2.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  /* box-shadow: inset 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3); */
 }
 .caixa-restante-diferenciais {
   display: flex;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
+  flex-flow: column;
   justify-content: center;
   padding: 2.5rem 2rem;
   gap: 2rem;
@@ -193,31 +227,13 @@ nav ul {
 }
 .caixa-texto-resumo {
   min-width: 300px;
-  max-width: 33%;
+  /* max-width: 33%; */
   align-items: center;
   border-radius: 2.5rem;
-  width: 70%;
+  width: auto;
   background-color: white;
   padding: 0.2rem 1.6rem 1.6rem 1.6rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.35);
-}
-.caixa-grupos {
-  min-width: 200px;
-  max-width: 33.33%;
-  border-radius: 2.5rem;
-  height: fit-content;
-  background-color: white;
-  padding: 0.2rem 0.42rem 1.6rem 0.42rem;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.35);
-}
-.caixa-grupos-logos {
-  margin-top: 2rem;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.42rem;
-  position: relative;
 }
 .caixa-icone {
   display: flex;
@@ -257,24 +273,37 @@ nav ul {
   margin-bottom: 0.4rem; */
 }
 .circulo-logos {
+  margin: 0.42rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: white;
   width: 10rem;
   height: 10rem;
   border-radius: 11rem;
   padding: 0.8rem;
-  box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 0.6rem rgba(0, 0, 0, 0.8);
 }
 .circulo-logos img {
-  width: 100%;
+  width: 98%;
   height: auto;
-  /* height: auto; */
 }
-.circulo-logos:hover {
-  box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.8),
-    0 0 0.8rem rgba(0, 0, 0, 0.35);
-  transition: all ease-in 0.3s;
+.circulo-logos:hover,
+.circulo-logos:active {
+  box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.8), 0 0 2rem rgba(0, 0, 0, 0.35);
+  transition: all ease-in 0.2s;
+}
+
+.contact {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  width: 100%;
+
+  background-color: antiquewhite;
 }
 
 /* Geology Banner */
@@ -294,7 +323,8 @@ nav ul {
   align-items: center;
   justify-content: center;
   height: 14vh;
-  background-image: url("assets/img/banner-geo.JPG");
+  background-image: url("https://api.github.com/repos/lszam/resume/contents/assets/img/banner-geo.JPG");
+  /* background-image: url("assets/img/banner-geo.JPG"); */
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -317,8 +347,9 @@ nav ul {
   gap: 2rem;
   width: 100%;
 }
-.container-midia {
-  display: inline-flex;
+.caixa-midia {
+  display: flex;
+  flex-flow: column;
   align-items: center;
   position: relative;
   left: 0;
@@ -364,102 +395,4 @@ nav ul {
   font-weight: 400;
   gap: 5rem;
   padding: 1.6rem;
-}
-
-/*PAGINA CODES*/
-
-.secao-codes-for-education {
-  display: flex;
-  position: relative;
-  flex-flow: column;
-  justify-content: center;
-  justify-items: center;
-  gap: 2rem;
-}
-
-.container-cabecalho {
-  max-width: 1000px;
-  background-color: white;
-  position: relative;
-  padding: 2rem;
-  box-shadow: 0 0.21rem 0.4rem rgba(0, 0, 0, 0.35),
-    inset 0 0.18rem 0.1rem rgba(0, 0, 0, 0.1);
-}
-.container-cabecalho ul {
-  margin-left: 2rem;
-}
-
-.codes-descricao {
-  display: flex;
-  position: relative;
-  font-size: 1.4rem;
-  font-weight: 400;
-  padding: 0.82rem;
-}
-
-.botao-github {
-  display: flex;
-  /* position: relative; */
-  justify-content: center;
-  align-items: center;
-
-  padding: 1rem;
-  /* justify-items: center; */
-  justify-content: center;
-  font-size: 1.2rem;
-  font-weight: 500;
-  border-radius: 2.5rem;
-  width: fit-content;
-  height: auto;
-  box-shadow: 0 0rem 0.8rem rgba(0, 0, 0, 0.35);
-  margin-bottom: 3.9rem;
-}
-.botao-github img {
-  height: 1.2rem;
-}
-
-.botao-github:active {
-  background-color: #6e6e6e;
-  box-shadow: 0 0rem 0.2rem rgba(0, 0, 0, 0.35);
-}
-.container-codes {
-  /* max-width: 1000px; */
-  display: flex;
-  position: relative;
-  flex-flow: row wrap;
-  background-color: white;
-  gap: 2rem;
-  padding: 1.2rem;
-  /* box-shadow: 0 0.21rem 0.4rem rgba(0, 0, 0, 0.35),
-    inset 0 0.18rem 0.1rem rgba(0, 0, 0, 0.1); */
-}
-.codes-codes {
-  /* font-size: 1.05rem; */
-  font-size: 1.05rem;
-  display: flex;
-  flex-flow: column;
-  position: initial;
-  width: max-content;
-}
-.codes-codes p {
-  text-align: left;
-  font-size: 1.6rem;
-}
-
-.codes-codes a:hover {
-  color: orange;
-}
-
-.nome-da-funcao {
-  display: flex;
-  flex-flow: row;
-  align-items: last baseline;
-  gap: 1.28rem;
-}
-
-.code {
-  box-shadow: 0 0.21rem 0.4rem rgba(0, 0, 0, 0.35),
-    inset 0 0.18rem 0.1rem rgba(0, 0, 0, 0.1);
-  background-color: white;
-  padding: 1rem;
 }

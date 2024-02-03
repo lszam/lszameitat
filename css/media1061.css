@@ -1,4 +1,4 @@
-@media all and (max-width: 1300px) {
+@media all and (max-width: 1061px) {
   .h1 {
     font-size: 1rem;
   }
@@ -12,6 +12,17 @@
     .nome-cabecalho-mobile {
       font-size: 2rem;
     }
+  }
+
+  .secao-principal {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .secao-hero {
+    max-width: 100%;
   }
 
   .container-secao-resumo-profissional {
@@ -49,6 +60,12 @@
   .hero-paragrafo {
     font-size: 1.4rem;
   }
+
+  .caixa-grupos {
+    justify-content: center;
+    text-align: center;
+  }
+
   .caixa-h3 {
     font-size: 2rem;
   }
