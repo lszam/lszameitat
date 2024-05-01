@@ -73,6 +73,12 @@
     font-size: 1.4rem;
   }
 
+  .caixa-news-links {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
   code {
     font-size: 1rem;
   }
