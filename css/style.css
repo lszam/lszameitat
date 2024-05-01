@@ -382,6 +382,50 @@ nav ul {
   }
 }
 
+/*NEWS*/
+.secao-news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: antiquewhite;
+  & p {
+    font-size: large;
+  }
+}
+.caixa-news {
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  align-items: center;
+  margin: 2rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+}
+
+.caixa-news-links {
+  display: inline-flex;
+  max-width: fit-content;
+  padding: 0.5rem;
+}
+
+.photo-news {
+  display: inline-flex;
+  max-width: 100;
+  margin: 1rem;
+}
+
+.news-texto {
+  text-align: center;
+}
+
+.abstract-link {
+  font-size: large;
+  &:hover {
+    color: #f60;
+    font-weight: 600;
+  }
+}
 /* Rodape */
 .secao-rodape {
   display: inline-flex;
