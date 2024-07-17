@@ -84,7 +84,32 @@
           Computational resources for treating magnetometric and gravimetric in
           Geophysical lectures
         </h2>
-        <p class="codes-descricao">Szameitat and Bongiolo (2024)</p>
+
+        <p class="referencia-texto">
+          Szameitat, L.S.A., Bongiolo, A.B.S. (2024) Recursos computacionais
+          para tratamento de dados magnetométricos e gravimétricos em sala de
+          aula. Boletim Paranaense de Geociências, v. 82, n. 1.
+        </p>
+        <p class="codes-descricao">
+          Abstract: The team at the Laboratory for Applied Geophysics Research
+          (LPGA-UFPR) has been dedicated to developing research work in teaching
+          and promoting geophysics, raising awareness and understanding of
+          geophysical methods within the university and for the external public.
+          In line with this effort, the authors have prepared a collection of
+          Python scripts for processing gravimetric and magnetometric data using
+          basic techniques: horizontal and vertical derivatives, horizontal
+          gradient, reduction to the pole, analytical signal amplitude, and
+          Bouguer anomaly estimation. To facilitate classroom use, the
+          algorithms have been formatted as Jupyter Notebooks and designed for
+          use in the Google Colaboratory programming environment. The
+          geophysical data transformations were adapted from classic functions
+          in the literature and also employed existing libraries in the same
+          language. The function algorithms are included in this material, and
+          the complete Python notebook programs are available and being updated
+          in a public GitHub repository. As a result, this work provides an
+          accessible tool for geoscience students in the analysis of potential
+          field data.
+        </p>
         <div class="hero-botoes" left="0">
           <div class="botao-github">
             <a href="https://github.com/lszam/ensino" target="_blank"
@@ -103,11 +128,6 @@
 
         <h3>References:</h3>
         <p class="referencia-texto">
-          Szameitat, L.S.A., Bongiolo, A.B.S. (2024) Recursos computacionais
-          para tratamento de dados magnetométricos e gravimétricos em sala de
-          aula. Boletim Paranaense de Geociências, v. 82, n. 1.
-        </p>
-        <p class="referencia-texto">
           Blakely, R. J. (1996). Potential theory in gravity and magnetic
           applications. Cambridge University Press.
         </p>
@@ -120,22 +140,64 @@
           >
         </p>
       </div>
+      <div class="letscode">
+        <div class="caixa-icone-code">
+          <img src="assets/ico/woman-icon.png" />
+        </div>
+        <h2>Let's code!</h2>
+      </div>
 
-      <div class="container-codes">
-        <!-- Lista de Codigos -->
+      <div class="codes-conteudo">
+        <div class="container-jupyter">
+          <div class="links">
+            <a
+              href="#"
+              onclick="loadPage('https://nbviewer.jupyter.org/github/lszam/ensino/blob/main/geof_mag/geof_mag_rtp-blakely_magsitio.ipynb')"
+              ><h3>Jupyter Notebook - Magnetometria - Redução ao Polo</h3></a
+            >
+            <a
+              href="#"
+              onclick="loadPage('https://nbviewer.jupyter.org/github/lszam/ensino/blob/main/geof_grav/geof_grav_boug.ipynb')"
+              ><h3>Jupyter Notebook - Gravimetria - Anomalia Bouguer</h3></a
+            >
+            <a
+              href="#"
+              onclick="loadPage('https://nbviewer.jupyter.org/github/lszam/ensino/blob/main/geof_filtros/geof_gradientehoriz.ipynb')"
+              ><h3>
+                Jupyter Notebook - Técnicas de realce - Gradiente Horizontal
+                Total
+              </h3></a
+            >
 
-        <!-- Gradiente Horizontal -->
-        <div class="codes-codes">
-          <h3>
-            <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
-            GradHoriz()
-          </h3>
-          <p class="codes-descricao">Total horizontal gradient</p>
-          <div class="code">
-            <p>
-              <a href="#" id="copyToClipboard1" class="fa fa-paste"></a>
-            </p>
-            <pre>
+            <a
+              href="#"
+              onclick="loadPage('https://nbviewer.jupyter.org/github/lszam/cprm-nfis/blob/main/ls_jupyter/ls_magnetic_der_asa_asa2pvd_signum.ipynb')"
+              ><h3>
+                Jupyter Notebook - ASA, PDZASA2, e binarização de anomalia
+              </h3></a
+            >
+          </div>
+
+          <div class="iframe-container">
+            <iframe id="iframe" src=""></iframe>
+          </div>
+        </div>
+
+        <div class="container-codes">
+          <!-- Lista de Codigos -->
+
+          <!-- Gradiente Horizontal -->
+          <div class="codes-codes">
+            <h3>
+              <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
+              GradHoriz()
+            </h3>
+            <p class="codes-descricao">Total horizontal gradient</p>
+            <div class="code">
+              <p>
+                <a href="#" id="copyToClipboard1" class="fa fa-paste"></a>
+              </p>
+              <pre>
                 <code>
   def GradHoriz(vetor, nx, ny, dx, dy):
     '''
@@ -179,24 +241,24 @@
     return vetor_GH
                 </code>
               </pre>
+            </div>
           </div>
-        </div>
-        <!-- Fim do Codigo 1 -->
+          <!-- Fim do Codigo 1 -->
 
-        <!-- Newvec -->
-        <div class="codes-codes">
-          <h3>
-            <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
-            NewVec()
-          </h3>
-          <p class="codes-descricao">
-            Reduction to the pole. Recquires DirCos() and Kvalue()
-          </p>
-          <div class="code">
-            <p>
-              <a href="#" id="copyToClipboard3" class="fa fa-paste"></a>
+          <!-- Newvec -->
+          <div class="codes-codes">
+            <h3>
+              <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
+              NewVec()
+            </h3>
+            <p class="codes-descricao">
+              Reduction to the pole. Recquires DirCos() and Kvalue()
             </p>
-            <pre>
+            <div class="code">
+              <p>
+                <a href="#" id="copyToClipboard3" class="fa fa-paste"></a>
+              </p>
+              <pre>
             <code>
 def NewVec(grid, nx, ny, dx, dy, fi1, fd1, mi1, md1, fi2, fd2, mi2, md2):
   '''
@@ -259,22 +321,22 @@ def NewVec(grid, nx, ny, dx, dy, fi1, fd1, mi1, md1, fi2, fd2, mi2, md2):
     return grid
               </code>
             </pre>
+            </div>
           </div>
-        </div>
-        <!-- Fim do Codigo 3 -->
+          <!-- Fim do Codigo 3 -->
 
-        <!-- DirCos -->
-        <div class="codes-codes">
-          <h3>
-            <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
-            DirCos()
-          </h3>
-          <p class="codes-descricao">Direcional cosine</p>
-          <div class="code">
-            <p>
-              <a href="#" id="copyToClipboard3" class="fa fa-paste"></a>
-            </p>
-            <pre>        
+          <!-- DirCos -->
+          <div class="codes-codes">
+            <h3>
+              <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
+              DirCos()
+            </h3>
+            <p class="codes-descricao">Direcional cosine</p>
+            <div class="code">
+              <p>
+                <a href="#" id="copyToClipboard3" class="fa fa-paste"></a>
+              </p>
+              <pre>        
     <code>
 def DirCos(i, d, az):
   '''
@@ -291,22 +353,22 @@ def DirCos(i, d, az):
 
       </code>
     </pre>
+            </div>
           </div>
-        </div>
-        <!-- Fim do Codigo DirCos -->
+          <!-- Fim do Codigo DirCos -->
 
-        <!-- Kvalue -->
-        <div class="codes-codes">
-          <h3>
-            <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
-            Kvalue()
-          </h3>
-          <p class="codes-descricao">as part of some Blakely's functions</p>
-          <div class="code">
-            <p>
-              <a href="#" id="copyToClipboard2" class="fa fa-paste"></a>
-            </p>
-            <pre>
+          <!-- Kvalue -->
+          <div class="codes-codes">
+            <h3>
+              <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
+              Kvalue()
+            </h3>
+            <p class="codes-descricao">as part of some Blakely's functions</p>
+            <div class="code">
+              <p>
+                <a href="#" id="copyToClipboard2" class="fa fa-paste"></a>
+              </p>
+              <pre>
                       <code>
         def Kvalue(i, j, nx, ny, dkx, dky):
           '''
@@ -334,12 +396,21 @@ def DirCos(i, d, az):
           return kx, ky
                         </code>
                       </pre>
+            </div>
           </div>
+          <!-- Fim do Kvalue -->
         </div>
-        <!-- Fim do Kvalue -->
       </div>
+
       <!-- Fim do container-codes -->
     </section>
+
+    <script>
+      function loadPage(url) {
+        document.getElementById("iframe").src = url;
+      }
+    </script>
+
     <script>
       document
         .getElementById("copyToClipboard1")

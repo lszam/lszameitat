@@ -13,7 +13,16 @@
   padding: 2rem;
 }
 
+.container-artigos {
+  display: flex;
+  flex-flow: column;
+  /*max-width: 100%;*/
+  padding: 2rem;
+}
+
 .container-artigos__artigos {
+  display: flex;
+  position: relative;
   background-color: white;
   padding: 1rem 1rem 1rem 2.5rem;
   width: 100%;
@@ -21,14 +30,9 @@
   font-size: 1.6rem;
 }
 
-.container-artigos {
-  max-width: 100%;
-}
-
-.container-artigos__titulo {
+.pub_titulo {
   padding: 1.2rem 0.42rem 0.42rem 0.42rem;
-  box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.4);
-  background-color: white;
+  text-align: center;
 }
 
 .container-artigos ol {
@@ -43,10 +47,10 @@
 }
 .container-artigos a:hover {
   font-weight: 600;
-  color: chocolate;
+  color: blue;
 }
 
 a.doi {
   /* color: rgb(83, 83, 83); */
-  font-weight: 700;
+  font-weight: 800;
 }

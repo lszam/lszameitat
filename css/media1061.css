@@ -77,3 +77,9 @@
     max-width: 100%;
   }
 }
+
+/*CODES*/
+.codes-conteudo {
+  display: flex;
+  flex-flow: column;
+}
