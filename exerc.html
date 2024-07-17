@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LSzameitat</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pub.css" />
+    <link
+      rel="stylesheet"
+      href="css/media1061.css"
+      media="(max-width:1061px)"
+    />
+    <link rel="stylesheet" href="css/media767.css" media="(max-width:767px)" />
+    <link rel="icon" href="assets/ico/favicon.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="assets/ico/favicon.png"
+      type="image/x-icon"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
+      integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+      integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header class="caixa-cabecalho">
+      <h1 class="nome-cabecalho-mobile">PhD Luizemara Szameitat</h1>
+
+      <nav>
+        <ul>
+          <li class="item-cabecalho">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="item-cabecalho menu-filhos" id="clickable-link">
+            <a href="#">Work</a>
+            <!-- Menu filhos -->
+            <ul class="menu-filhos">
+              <li class="item-cabecalho">
+                <a href="pub.html">Articles</a>
+              </li>
+
+              <li class="item-cabecalho">
+                <a href="codes.html">Coding</a>
+              </li>
+
+              <li class="item-cabecalho">
+                <a href="exerc.html">Exercises</a>
+              </li>
+
+              <li class="item-cabecalho">
+                <a href="http://lattes.cnpq.br/4322898960715686" target="_blank"
+                  >CNPq Lattes</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="secao-exe">
+      <img src="assets/ico/book-ico1.png" />
+      <h1>EM CONSTRUÇÃO!</h1>
+    </div>
+
+    <div class="exlinks">
+      <a href="#" onclick="loadPage('https://www.exemplo1.com')">Link 1</a>
+      <a href="#" onclick="loadPage('https://www.exemplo2.com')">Link 2</a>
+      <a href="#" onclick="loadPage('https://www.exemplo3.com')">Link 3</a>
+    </div>
+
+    <div class="iframe-container">
+      <iframe id="iframe" src=""></iframe>
+    </div>
+
+    <script>
+      function loadPage(url) {
+        document.getElementById("iframe").src = url;
+      }
+    </script>
+  </body>
+</html>

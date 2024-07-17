@@ -23,7 +23,7 @@ body {
   color: #404040;
   line-height: 1.4;
   padding: 0;
-  background-color: white;
+  background-color: cornflowerblue;
 }
 h1 {
   font-size: 2.1rem;
@@ -70,12 +70,14 @@ a {
 .container {
   /* max-width: 1500px; */
   margin: 0 auto;
+  background-color: white;
 }
 
 .container-principal {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  background-color: white;
 }
 
 .botao {
@@ -87,7 +89,7 @@ a {
   font-weight: 700;
   text-align: center;
   border-radius: 3rem;
-  background-color: antiquewhite;
+  background-color: rgb(138, 175, 239);
   padding: 1.02rem 2.5rem;
   border-bottom: solid 0.2rem #404040;
   border-right: solid 0.2rem #404040;

@@ -64,6 +64,10 @@
               </li>
 
               <li class="item-cabecalho">
+                <a href="exerc.html">Exercises</a>
+              </li>
+
+              <li class="item-cabecalho">
                 <a href="http://lattes.cnpq.br/4322898960715686" target="_blank"
                   >CNPq Lattes</a
                 >
@@ -73,31 +77,35 @@
         </ul>
       </nav>
     </header>
-    <section class="secao-codes-for-education">
-      <div class="container-cabecalho">
+    <section>
+      <div class="codes-cabecalho">
         <h1>Codes for Education</h1>
         <h2>
-          Computational resources for treating magnetometric and gravimetric
-          data
+          Computational resources for treating magnetometric and gravimetric in
+          Geophysical lectures
         </h2>
-        <p class="codes-descricao">
-          Python codes for some Fortran functions of Blakely (1996), and
-          application of published functions of Fatiando a Terra project (Uieda,
-          et al. 2013), designed for using as a educational tool in Geophysics
-          courses.
-        </p>
-
-        <div class="botao-github">
-          <a href="https://github.com/lszam/ensino" target="_blank"
-            ><img src="assets/logo/logo-github.png" /> GitHub project
-          </a>
+        <p class="codes-descricao">Szameitat and Bongiolo (2024)</p>
+        <div class="hero-botoes" left="0">
+          <div class="botao-github">
+            <a href="https://github.com/lszam/ensino" target="_blank"
+              >GitHub project
+            </a>
+          </div>
+          <div class="botao-github">
+            <a
+              href="https://revistas.ufpr.br/geociencias/article/view/91973"
+              target="_blank"
+            >
+              Article
+            </a>
+          </div>
         </div>
 
         <h3>References:</h3>
         <p class="referencia-texto">
-          Szameitat, L., Bongiolo, A. (Accepted article) Recursos computacionais
+          Szameitat, L.S.A., Bongiolo, A.B.S. (2024) Recursos computacionais
           para tratamento de dados magnetométricos e gravimétricos em sala de
-          aula. Boletim Paranaense de Geociências.
+          aula. Boletim Paranaense de Geociências, v. 82, n. 1.
         </p>
         <p class="referencia-texto">
           Blakely, R. J. (1996). Potential theory in gravity and magnetic
@@ -115,13 +123,14 @@
 
       <div class="container-codes">
         <!-- Lista de Codigos -->
+
         <!-- Gradiente Horizontal -->
         <div class="codes-codes">
           <h3>
             <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
             GradHoriz()
           </h3>
-          <p class="codes-descricao">Total horizontal gradient filter</p>
+          <p class="codes-descricao">Total horizontal gradient</p>
           <div class="code">
             <p>
               <a href="#" id="copyToClipboard1" class="fa fa-paste"></a>
@@ -172,7 +181,121 @@
               </pre>
           </div>
         </div>
-        <!-- Segundo Codigo -->
+        <!-- Fim do Codigo 1 -->
+
+        <!-- Newvec -->
+        <div class="codes-codes">
+          <h3>
+            <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
+            NewVec()
+          </h3>
+          <p class="codes-descricao">
+            Reduction to the pole. Recquires DirCos() and Kvalue()
+          </p>
+          <div class="code">
+            <p>
+              <a href="#" id="copyToClipboard3" class="fa fa-paste"></a>
+            </p>
+            <pre>
+            <code>
+def NewVec(grid, nx, ny, dx, dy, fi1, fd1, mi1, md1, fi2, fd2, mi2, md2):
+  '''
+  NewVec(grid, nx, ny, dx, dy, fi1, fd1, mi1, md1, fi2, fd2, mi2, md2)
+  Objetivo: simular mudanças na direção de magnetização
+  Para redução ao polo, deve-se usar mi2 = fi2 = 90
+  Parameters
+  ----------
+  grid - array de duas dimensões contendo o campo total
+  nx, ny (int):
+  numero de amostras em x e y
+  dx, dy (int):
+  distancia entre amostras em x e y
+  mi1, md1 - (graus):
+    inclinacao e declinacao da magnetizacao
+  fi1, fd1 - (graus):
+    Magnetizacao do campo geomagnetico atual (inclinacao, declinacao)
+  mi2, md2 - (graus):
+    Nova direção de magnetizacao (inclinacao, declinacao)
+  fi2, fd2 - (graus):
+    Nova magnetizacao do campo geomagnetico (inclinacao, declinacao)
+  '''
+          
+  dkx = 2. * np.pi / (nx * dx)
+  dky = 2. * np.pi / (ny * dy)
+          
+  #Cossenos direcionais
+  mx1, my1, mz1 = DirCos(mi1, md1, 0.) # i,d do corpo, magnetização inicial
+  fx1, fy1, fz1 = DirCos(fi1, fd1, 0.) # i,d do campo, inicial
+  mx2, my2, mz2 = DirCos(mi2, md2, 0.) # i,d do corpo, final
+  fx2, fy2, fz2 = DirCos(fi2, fd2, 0.) # i,d do campo, final
+          
+  #Transformada de Fourier usando scipy
+  gridfft = scipy.fftpack.fft2(grid) # fft2 - matriz 2D
+  gridfft = np.reshape(gridfft, nx*ny) # muda a matriz fft para forma 1D
+          
+  #Filtro de fase
+    for j in range (1, nx+1):
+        for i in range (1, ny+1):
+            ij = (j-1) * ny + i
+            if ij == 1:
+                cphase = 0.0
+            else:
+                kx, ky = Kvalue(i, j, nx, ny, dkx, dky) # ** funcao Kvalue
+                k = sqrt(kx**2 + ky**2)
+                thetam1 = complex(mz1, (kx*mx1 + ky*my1) / k)
+                thetaf1 = complex(fz1, (kx*fx1 + ky*fy1) / k)
+                thetam2 = complex(mz2, (kx*mx2 + ky*my2) / k)
+                thetaf2 = complex(fz2, (kx*fx2 + ky*fy2) / k)
+                cphase = thetam2 * thetaf2 / (thetam1 * thetaf1)
+          
+            # Filtra cada item do grid
+            gridfft[ij-1] = gridfft[ij-1]*cphase
+          
+    #Fourier
+    gridfft = np.reshape(gridfft, (ny, nx)) # retorna para formato 2D
+    gridifft = scipy.fftpack.ifft2(gridfft)
+    grid = gridifft.real #usamos apenas a parte real
+          
+    return grid
+              </code>
+            </pre>
+          </div>
+        </div>
+        <!-- Fim do Codigo 3 -->
+
+        <!-- DirCos -->
+        <div class="codes-codes">
+          <h3>
+            <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
+            DirCos()
+          </h3>
+          <p class="codes-descricao">Direcional cosine</p>
+          <div class="code">
+            <p>
+              <a href="#" id="copyToClipboard3" class="fa fa-paste"></a>
+            </p>
+            <pre>        
+    <code>
+def DirCos(i, d, az):
+  '''
+  Parametros
+  ----------
+  i - inclinacao
+  d - declinacao
+  az - azimute
+  '''
+  a = cos(radians(i))*cos(radians(d)-radians(az))
+  b = cos(radians(i))*sin(radians(d)-radians(az))
+  c = sin(radians(i))
+  return a, b, c
+
+      </code>
+    </pre>
+          </div>
+        </div>
+        <!-- Fim do Codigo DirCos -->
+
+        <!-- Kvalue -->
         <div class="codes-codes">
           <h3>
             <img src="assets/logo/logo-py.png" alt="logo-py" height="14px" />
@@ -184,40 +307,39 @@
               <a href="#" id="copyToClipboard2" class="fa fa-paste"></a>
             </p>
             <pre>
-              <code>
-def Kvalue(i, j, nx, ny, dkx, dky):
-  '''
-  Parametros
-  ----------
-  i, j(int):
-    posicoes, ou indices de varredura
-  nx, ny (int):
-    número de amostras em x e y
-  dkx, dky (int):
-    distância em x e y em radianos
-  '''
-  nyqx = nx / 2 + 1
-  nyqy = ny / 2 + 1
-  kx = float()
-  ky = float()
-  if j <= nyqx:
-    kx = (j-1) * dkx
-  else:
-    kx = (j-nx-1) * dkx
-  if I <= nyqy:
-    ky = (i-1) * dky
-  else:
-    ky = (i-ny-1) * dky
-  return kx, ky
-                </code>
-              </pre>
+                      <code>
+        def Kvalue(i, j, nx, ny, dkx, dky):
+          '''
+          Parametros
+          ----------
+          i, j(int):
+            posicoes, ou indices de varredura
+          nx, ny (int):
+            número de amostras em x e y
+          dkx, dky (int):
+            distância em x e y em radianos
+          '''
+          nyqx = nx / 2 + 1
+          nyqy = ny / 2 + 1
+          kx = float()
+          ky = float()
+          if j <= nyqx:
+            kx = (j-1) * dkx
+          else:
+            kx = (j-nx-1) * dkx
+          if I <= nyqy:
+            ky = (i-1) * dky
+          else:
+            ky = (i-ny-1) * dky
+          return kx, ky
+                        </code>
+                      </pre>
           </div>
         </div>
-        <!-- Fim do Codigo 2 -->
+        <!-- Fim do Kvalue -->
       </div>
       <!-- Fim do container-codes -->
     </section>
-
     <script>
       document
         .getElementById("copyToClipboard1")
@@ -238,6 +360,23 @@ def Kvalue(i, j, nx, ny, dkx, dky):
 
       document
         .getElementById("copyToClipboard2")
+        .addEventListener("click", function () {
+          var codeElement = document.querySelectorAll(".code code")[1];
+          var textToCopy = codeElement.innerText;
+
+          navigator.clipboard
+            .writeText(textToCopy)
+            .then(function () {
+              alert("Code copied to clipboard!");
+            })
+            .catch(function (err) {
+              console.error("Unable to copy code: ", err);
+              alert("Failed to copy code to clipboard.");
+            });
+        });
+
+      document
+        .getElementById("copyToClipboard3")
         .addEventListener("click", function () {
           var codeElement = document.querySelectorAll(".code code")[1];
           var textToCopy = codeElement.innerText;
