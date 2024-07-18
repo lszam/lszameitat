@@ -46,7 +46,7 @@
   font-size: 1.2rem;
   font-weight: 500;
   border-radius: 2.5rem;
-  width: fit-content;
+  /*width: fit-content;*/
   height: auto;
   box-shadow: 0 0rem 0.8rem rgba(0, 0, 0, 0.35);
   margin-bottom: 3.9rem;
@@ -56,7 +56,7 @@
 }
 
 .botao-github:active {
-  background-color: #6e6e6e;
+  background-color: #8a8a8a;
   box-shadow: 0 0rem 0.2rem rgba(0, 0, 0, 0.35);
 }
 
@@ -92,27 +92,34 @@
   flex-flow: column;
 }
 
-.container-codes {
+/*.container-codes {
   display: flex;
   position: relative;
   flex-flow: row wrap;
   justify-content: center;
   background-color: whitesmoke;
-  gap: 2rem;
+  gap: 1.2rem;
   padding: 1.2rem;
   width: 100%;
-}
+}*/
 
 .container-jupyter {
   display: flex;
   position: relative;
-  flex-flow: row wrap;
+  flex-flow: column;
   justify-content: center;
   background-color: white;
-  gap: 2rem;
+  gap: 1rem;
   padding: 1.2rem;
   width: 100%;
-  height: fit-content;
+}
+
+.container-jupyter a {
+  text-decoration-line: underline;
+}
+.container-jupyter a:hover {
+  font-weight: 800;
+  color: blue;
 }
 
 .codes-codes {
